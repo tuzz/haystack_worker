@@ -13,7 +13,7 @@ int main() {
     {1,1},{1,1},{1,1},{1,1},{1,1}
   };
 
-  int *array, blocks = 16, position = 0, bytes;
+  int blocks = 16, position = 0, *array = NULL, bytes;
 
   YIELD_ATTEMPTS {
     int i, j, total[26] = {};
