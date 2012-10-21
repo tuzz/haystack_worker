@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "lookup.h"
 #include "macros.h"
 
@@ -10,7 +13,7 @@ int main() {
     {1,1},{1,1},{1,1},{1,1},{1,1}
   };
 
-  /* allocate a 2d array for surpluses */
+  int *array, blocks = 16, position = 0, bytes;
 
   YIELD_ATTEMPTS {
     int i, j, total[26] = {};
@@ -30,11 +33,29 @@ int main() {
     }
 
     if (satisfiable) {
-      /* append to the 2d array, realloc as needed */
+      if (position + 26 > blocks) {
+        blocks *= 2, bytes = blocks * sizeof(int);
+        array = realloc(array, bytes);
+
+        if (array == NULL) {
+          printf("Failed to allocate %d bytes.", bytes);
+          /* raise a Ruby exception */
+        }
+      }
+
+      for (i = 0; i < 26; i++) {
+        array[position + i] = attempt[i];
+      }
+
+      position += 26;
     }
   }
 
-  /* pass the 2d array back to ruby */
-
-  /* free the 2d array */
+  if (position == 0) {
+    /* pass nil back to Ruby */
+  }
+  else {
+    /* pass the array back to Ruby */
+    free(array);
+  }
 }
