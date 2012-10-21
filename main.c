@@ -22,7 +22,7 @@ int main() {
 
     int satisfiable = 1, surplus[26];
     for (i = 0; i < 26; i++) {
-      surplus[i] = total[i] - attempt[i];
+      surplus[i] = attempt[i] - total[i];
       if (surplus[i] < 0) {
         satisfiable = 0;
         break;
