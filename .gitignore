@@ -1,1 +1,7 @@
+*.o
 *.out
+*.bundle
+*.gem
+Makefile
+Gemfile.lock
+lib/haystack_worker
