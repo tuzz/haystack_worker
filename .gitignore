@@ -2,5 +2,6 @@
 *.out
 *.bundle
 *.gem
+*.log
 Makefile
 Gemfile.lock
