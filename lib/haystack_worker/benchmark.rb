@@ -1,4 +1,6 @@
-module Benchmark
+require 'benchmark'
+
+module HaystackWorker::Benchmark
   def benchmark(exponentials = 5..7)
     puts "\n::::: Benchmarking :::::\n\n"
 

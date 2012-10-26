@@ -1,15 +1,11 @@
-require 'benchmark'
-
-class HaystackWorker
-  extend Benchmark
-
-  def self.work(*ranges)
+module HaystackWorker::Surpluses
+  def surpluses(*ranges)
     validate(ranges)
-    _work(ranges.map { |r| [r.min, r.max] })
+    _surpluses(ranges.map { |r| [r.min, r.max] })
   end
 
   private
-  def self.validate(ranges)
+  def validate(ranges)
     ranges.flatten!
 
     message = 'Please specify 26 ranges as an argument.'

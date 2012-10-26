@@ -2,7 +2,7 @@
 #include "lookup.h"
 #include "macros.h"
 
-static VALUE work(VALUE self, VALUE rb_ary) {
+static VALUE surpluses(VALUE self, VALUE rb_ary) {
   int i, j, ranges[26][2];
   for (i = 0; i < 26; i++) {
     for (j = 0; j < 2; j++) {
@@ -68,5 +68,5 @@ static VALUE work(VALUE self, VALUE rb_ary) {
 
 void Init_haystack_worker(void) {
   VALUE klass = rb_define_class("HaystackWorker", rb_cObject);
-  rb_define_singleton_method(klass, "_work", work, 1);
+  rb_define_singleton_method(klass, "_surpluses", surpluses, 1);
 }
