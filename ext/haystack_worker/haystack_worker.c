@@ -68,5 +68,5 @@ static VALUE surpluses(VALUE self, VALUE rb_ary) {
 
 void Init_haystack_worker(void) {
   VALUE klass = rb_define_class("HaystackWorker", rb_cObject);
-  rb_define_singleton_method(klass, "_surpluses", surpluses, 1);
+  rb_define_method(klass, "_surpluses", surpluses, 1);
 }

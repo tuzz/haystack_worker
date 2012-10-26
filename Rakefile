@@ -27,7 +27,7 @@ end
 desc 'Benchmark the worker against your machine'
 task :benchmark => :compile do
   require 'haystack_worker'
-  HaystackWorker.benchmark
+  HaystackWorker.new(nil).benchmark
 end
 
 RSpec::Core::RakeTask.new(:spec)

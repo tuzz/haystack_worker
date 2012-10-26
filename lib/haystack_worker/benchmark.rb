@@ -12,7 +12,7 @@ module HaystackWorker::Benchmark
 
       times = 5.times.map do
         time = Benchmark.realtime do
-          work(attempts)
+          surpluses(attempts)
         end
         puts time
         time
