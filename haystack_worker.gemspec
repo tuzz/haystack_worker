@@ -10,5 +10,9 @@ Gem::Specification.new do |s|
   s.extensions  = ['ext/haystack_worker/extconf.rb']
   s.executables = ['haystack']
 
+  s.add_dependency 'json'
+
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'fakeweb'
+  s.add_development_dependency 'rack'
 end
