@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+
+require 'haystack_worker'
+
+ARGV[1] ||= 'localhost:9292'
+HaystackWorker.work(ARGV[1])
