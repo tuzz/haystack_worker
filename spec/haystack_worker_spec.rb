@@ -10,6 +10,7 @@ describe HaystackWorker, 'Integration' do
     job = { 'id' => 123, 'ranges' => [1..1] * 26 }.to_json
     haystack = lambda { |_| [200, { 'Content-Type' => 'text/plain' }, [job]] }
     Thread.new { Rack::Handler::WEBrick.run(haystack, :Port => 9292) }
+    sleep 1
   end
 
   describe '.work' do
