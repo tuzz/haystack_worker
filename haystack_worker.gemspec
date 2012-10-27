@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'haystack_worker'
-  s.version     = '0.0.1.alpha'
+  s.version     = '0.0.1'
   s.summary     = 'Summary'
   s.description = 'Description'
   s.author      = 'Christopher Patuzzo'
