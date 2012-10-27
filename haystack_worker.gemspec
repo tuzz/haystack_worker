@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'haystack_worker'
-  s.version     = '0.0.1'
-  s.summary     = 'Summary'
-  s.description = 'Description'
+  s.version     = '0.0.2'
+  s.summary     = 'Haystack Worker'
+  s.description = 'Works on behalf of a haystack server.'
   s.author      = 'Christopher Patuzzo'
   s.email       = 'chris.patuzzo@gmail.com'
   s.homepage    = 'https://github.com/cpatuzzo/haystack_worker'
