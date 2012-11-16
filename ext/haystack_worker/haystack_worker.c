@@ -47,11 +47,9 @@ static VALUE surpluses(VALUE self, VALUE rb_ary) {
     }
   }
 
-  if (position == 0) {
-    return Qnil;
-  }
-  else {
-    VALUE rb_solutions = rb_ary_new(), rb_solution;
+  VALUE rb_solutions = rb_ary_new();
+  if (position != 0) {
+    VALUE  rb_solution;
 
     for (i = 0; i < position / 26; i++) {
       rb_solution = rb_ary_new();
@@ -62,8 +60,9 @@ static VALUE surpluses(VALUE self, VALUE rb_ary) {
     }
 
     free(array);
-    return rb_solutions;
   }
+
+  return rb_solutions;
 }
 
 void Init_haystack_worker(void) {

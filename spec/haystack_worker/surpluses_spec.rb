@@ -10,9 +10,9 @@ describe HaystackWorker, 'Surpluses' do
       subject.surpluses(search_space).should == solutions
     end
 
-    it 'returns nil if there surplus solutions are found' do
+    it 'returns an empty array if there surplus solutions are found' do
       search_space = [1..1] * 26;
-      subject.surpluses(search_space).should be_nil
+      subject.surpluses(search_space).should == []
     end
 
     it 'raises an argument error on a cardinality mismatch' do
@@ -34,7 +34,7 @@ describe HaystackWorker, 'Surpluses' do
 
     it 'coerces list style arguments into an array' do
       search_space = [1..1] * 26
-      subject.surpluses(*search_space).should be_nil
+      subject.surpluses(*search_space).should == []
     end
   end
 end

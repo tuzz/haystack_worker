@@ -1,6 +1,6 @@
 module HaystackWorker::Jobs
   def request_job
-    respond_with(nil, nil)
+    respond_with(nil, [])
   end
 
   def respond_with(id, results)

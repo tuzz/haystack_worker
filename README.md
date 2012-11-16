@@ -20,7 +20,7 @@ It posts data back to the haystack at /job/:id in the form:
 [[1,3,8,etc],[6,4,14,etc]]
 ```
 
-It returns ```nil``` if the given search space doesn't contain any potential self-enumerating pangrams.
+It returns an empty array if the given search space doesn't contain any potential self-enumerating pangrams.
 
 ## Usage
 
