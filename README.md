@@ -9,10 +9,10 @@ A haystack worker's sole responsibility is to calculate surpluses of characters 
 It receives 'jobs' from a haystack server which come in the form:
 
 ```ruby
-{ 'id' => 123, 'ranges' => [1..10, 3..4, 8..14, etc] }
+{ 'id' => 123, 'from' => [1, 3, 8, etc], 'to' => [10, 4, 14, etc] }
 ```
 
-The ranges represent the search space that this worker has been assigned to explore. The ID is used by the haystack worker to keep track of jobs.
+The 'from' and 'to' arrays represent the search space that this worker has been assigned to explore. The ID is used by the haystack worker to keep track of jobs.
 
 It posts data back to the haystack at /job/:id in the form:
 

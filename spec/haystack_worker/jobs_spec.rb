@@ -3,7 +3,7 @@ require 'spec_helper'
 describe HaystackWorker, 'Jobs' do
   subject { HaystackWorker.new('example.com') }
 
-  let(:job) { { 'id' => 123, 'ranges' => [1..1, 2..2] }.to_json }
+  let(:job) { { 'id' => 123, 'from' => [1, 2], 'to' => [1, 2] }.to_json }
 
   before(:all) do
     FakeWeb.allow_net_connect = false
@@ -19,7 +19,7 @@ describe HaystackWorker, 'Jobs' do
     end
 
     it 'returns the next job' do
-      id, ranges  = subject.request_job
+      id, ranges = subject.request_job
 
       id.should == 123
       ranges.should == [1..1, 2..2]

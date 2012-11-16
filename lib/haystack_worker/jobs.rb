@@ -8,9 +8,9 @@ module HaystackWorker::Jobs
     data = data_for(results)
 
     json = Net::HTTP.post_form(path, data).body
-    hash = with_support_for_ranges { JSON.parse(json) }
+    hash = JSON.parse(json)
 
-    [hash['id'], hash['ranges']]
+    [hash['id'], ranges_for(hash)]
   end
 
   private
@@ -18,18 +18,14 @@ module HaystackWorker::Jobs
     { :results => results.to_json }
   end
 
-  def job_path(id = nil)
-    URI("http://#@haystack_domain/job/#{id}")
+  def ranges_for(hash)
+    if hash['from'] && hash['to']
+      pairs = hash['from'].zip(hash['to'])
+      pairs.inject([]) { |arr, (f, t)| arr << (f..t) }
+    end
   end
 
-  def with_support_for_ranges(&block)
-    hash = yield
-
-    if hash['ranges']
-      ranges = hash['ranges'].map { |r| eval(r) }
-      hash.merge!('ranges' => ranges)
-    end
-
-    hash
+  def job_path(id = nil)
+    URI("http://#@haystack_domain/job/#{id}")
   end
 end
