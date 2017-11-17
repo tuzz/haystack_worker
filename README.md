@@ -34,9 +34,3 @@ At present, I haven't built the haystack server. When I have, I'll update the ge
 ## Resources
 
 For more information or to gain some context, please see my pangram and frequency related projects.
-
-## Contribution
-
-Feel free to contribute. No commit is too small.
-
-You should follow me: [@cpatuzzo](https://twitter.com/cpatuzzo)
